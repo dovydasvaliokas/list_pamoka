@@ -1,3 +1,5 @@
+import java.util.Comparator;
+
 public abstract class Darbuotojas
 {
     protected String vardas;
@@ -49,4 +51,26 @@ public abstract class Darbuotojas
         pilnasVP += algosSkaiciavimas() + "\n";
         return pilnasVP;
     }
+
+    public static Comparator<Darbuotojas> pagalAlgaRikiuoti = new Comparator<Darbuotojas>()
+    {
+        @Override
+        public int compare(Darbuotojas o1, Darbuotojas o2)
+        {
+            double alga1 = o1.algosSkaiciavimas();
+            double alga2 = o2.algosSkaiciavimas();
+
+
+            // Jei norime didejancia tvarka
+            if (alga1 > alga2)
+            {
+                return 1;
+            }
+            if (alga2 > alga1)
+            {
+                return -1;
+            }
+            return 0;
+        }
+    };
 }

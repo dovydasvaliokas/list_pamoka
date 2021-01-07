@@ -16,7 +16,7 @@ public class Programa
 
         String failoNuoroda = "data.txt";
         File failas = new File(failoNuoroda);
-        ArrayList<Darbuotojas> darbuotojai = new ArrayList<Darbuotojas>();
+        ArrayList<Darbuotojas> darbuotojai = new ArrayList<>();
         try
         {
             Scanner failoSkaitytuvas = new Scanner(failas);
@@ -61,6 +61,17 @@ public class Programa
             System.out.println("Nera tokio failo");
             e.printStackTrace();
         }
+
+        System.out.println("Visų darbuotojų suma: " + darbuotojuAlguSuma(darbuotojai));
+        // Rasti darbuotoją, kuris uždirba daugiausiai ir išvesti jo vardą pavardę
+        // Rasti kiek reikės išmokėti agentūros darbuotojams ir po to atskirai kiek išmokėti kontraktiniam darbuotojams
+        Collections.sort(darbuotojai, Darbuotojas.pagalAlgaRikiuoti);
+
+        for (int i = 0; i < darbuotojai.size(); i++)
+        {
+            System.out.println(darbuotojai.get(i).pilnasDarbuotojoIsvedimas());
+        }
+
  /*       try
         {
             Scanner failoSkaitytuvas = new Scanner(failas);
@@ -141,6 +152,17 @@ public class Programa
         Collections.sort(ivestuSkaiciuSarasas, Comparator.reverseOrder());
      //   ivestuSkaiciuSarasas.sort(Comparator.reverseOrder());
         System.out.println("Surikiuotas sarasas: " + ivestuSkaiciuSarasas.toString());*/
+    }
+
+
+    public static double darbuotojuAlguSuma(ArrayList<Darbuotojas> darbuotojai)
+    {
+        double suma = 0;
+        for (int i = 0; i < darbuotojai.size(); i++)
+        {
+            suma += darbuotojai.get(i).algosSkaiciavimas();
+        }
+        return suma;
     }
 
 

@@ -1,0 +1,7 @@
+Vardenis,Pavardenis,1000,11,kontrakto
+antras,pavarde,1200,15,kontrakto
+Agenturinis,Darbinis,900,agentura
+Jonas,Jonaitis,850,agentura
+Name,Surname,1300,10,kontrakto
+Petras,Petraitis,2600,26,kontrakto
+Poska,Poskus,800,agentura
